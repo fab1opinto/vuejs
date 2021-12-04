@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Vuejs-->
+    <script src="vue.js"></script>
+   
+    <style>
+       
+    </style>
+     //DIRETIVA V MODEL - SINCRONIZANDO INPUTS COM ATRIBUTOS(TWO-WAY-DATA BINDING) PART II
+</head>
+<body>
+
+<div id="app">
+    {{paciente}}
+<input type="text" v-model="paciente">
+<hr>
+
+<input type="radio" value="f" v-model="sexo">Feminino
+<input type="radio" value="m" v-model="sexo">Masculino
+<br> {{ sexo }}
+<hr>
+
+<select v-model="plano">
+    <option value="" disabled>Selecione um plano</option>
+    <option value="1">Básico 1</option>
+    <option value="1">Básico 2</option>
+    <option value="1">Master</option>
+</select>
+<hr>
+<input type="checkbox" value="100" v-model="doencas">Asma
+<input type="checkbox" value="101" v-model="doencas">"Rinite"
+<input type="checkbox" value="102" v-model="doencas">"Sinusite"
+{{ doencas }}
+<hr>
+<textarea v-model="diagnostico"></textarea>
+<br> {{ diagnostico }}
+</div>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app', //#para selecionar por id, . por selecionar por class
+        data: {
+            paciente: 'João da Silva',
+            sexo: '',
+            plano: '',
+            doencas: [],
+            diagnostico: ''
+        },
+        methods: {}
+        })
+    
+</script>
+
+</body>
+</html>

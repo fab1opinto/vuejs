@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Vuejs-->
+    <script src="vue.js"></script>
+   
+    <style>
+       
+    </style>
+     //TRABALHANDO COM PROPRIEDADES COMPUTADAS PART I
+</head>
+<body>
+
+<div id="app">
+<h4>Adicionar Pacientes</h4>
+<span>Nome:</span><input type="text" id="inputNome"><br>
+<span>Idade:</span><input type="text" id="inputIdade"><br>
+<span>Plano:</span><input type="text" id="inputPlano"><br>
+<button @click="adicionarPaciente">Adicionar</button>
+<hr>
+<h4>Último paciente cadastrado:</h4>
+<p v-if="pacientes.length > 0">
+   
+</p>
+<hr>
+
+<h4>Pacientes do Plano Ouro:</h4>
+<p v-for="p in pacientes">{{p.plano == 'Ouro' ? p.nome : ''}}</p>
+<hr>
+
+<h4>Pacientes cadastrados</h4>
+<p v-for="p in pacientes">{{p.nome}}</p>
+</div>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app', //#para selecionar por id, . por selecionar por class
+        data: {
+          pacientes: []
+        },
+        methods: {
+            adicionarPaciente() {
+                this.pacientes.push (
+                    {
+                        nome: inputNome.value,
+                        idade: inputIdade.value,
+                        plano: inputPlano.value
+                    }
+                )
+            },
+            computed: {
+                ultimoPaciente() {
+                    let key = this.pacientes.length - 1
+                    let txt = ''
+
+                    txt += 'Paciente' + this.pacientes[key].nome
+
+                    Paciente {{ pacientes[pacientes.length -1].nome}},
+                    Idade {{ pacientes[pacientes.length -1].idade}},
+                    plano {{ pacientes[pacientes.length -1].plano}}
+
+                }
+            }
+        }
+        
+    })
+    
+</script>
+
+</body>
+</html>

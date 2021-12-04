@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Vuejs-->
+    <script src="vue.js"></script>
+   
+    <style>
+       
+    </style>
+     //DIRETIVA V:IF
+</head>
+<body>
+
+<div id="app">
+<!--V-IF SIMPLES-->
+<button @click="exibirSaldo = !exibirSaldo">
+    <span v-if="exibirSaldo">Exibir Saldo</span>
+</button><!--Toggle-->
+<!--Passar do true para o false 
+@click ="exibirSaldo = !exibirSaldo"-->
+<p>Saldo: <span v-if="exibirSaldo">R$ {{ saldo }}</span></p>
+<!-- v-if e vi-else-->
+Idade: <input type="text" id="inputIdade" @blur="setIdade()">
+<p v-if="idade < 18">Menor de idade</p>
+<p v-else>Maior de idade</p>
+<!--v-if, v-else, v-if e v-else-->
+Nota: <input type="text" id="inpputNota" @blur="setNota()">
+<p v-if="nota == '' ">Digite a nota do aluno:</p>
+<p v-else-if="nota >= 7 && nota <= 10">"Aluno Aprovado"</p>
+<p v-else-if="nota >= 5 && nota < 7">"Aluno em recuperação"</p>
+<p v-else-if="nota >= 0 && nota < 5">"Aluno reprovado"</p>
+<p v-else>A nota informada é inválida</p>
+</div>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app', //#para selecionar por id, . por selecionar por class
+        data: {
+            saldo: 4570.17,
+            exibirSaldo: true,
+            idade: 0,
+            nota: 0
+        },
+        methods: {
+           setIdade() {
+               this.idade = inputIdade.value
+           },
+           setNota() {
+               this.nota = inputNota.value
+               console.log(this.nota)
+           }
+        }
+        
+    })
+    
+</script>
+
+</body>
+</html>

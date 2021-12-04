@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Vuejs-->
+    <script src="vue.js"></script>
+   
+    <style>
+       
+    </style>
+     //REDERIZAÇÃO DE LISTAS COM ATRIBUTO KEY
+</head>
+<body>
+
+<div id="app">
+<ul>
+    <li v-for="n in 10">{{n}}</li>
+</ul>
+<ul>
+    <li v-for="(curso, chave) in cursos">{{ chave }} - {{ curso }}</li>
+    <li>Web Completo</li>
+</ul>
+<hr>
+<table>
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>{{cursos.titulo}}</th>
+        <th>{{cursos.descricao}}</th>
+    </tr>
+</thead>
+<tbody>
+    <tr v-for="curso in cursos2">
+        <td>1000</td>
+        <td>Laravel</td>
+        <td>Domine o framework php mais poderoso do mundo</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app', //#para selecionar por id, . por selecionar por class
+        data: {
+          cursos: ['laravel', 'web completo', 'banco de dados', 'solid', 'angular'],
+          cursos2: {
+              1000: { titulo: 'laravel' , descricao: 'Domine o framework php mais poderoso do mundo'},
+              1001: {
+                  titulo: 'Banco de dados',
+                  descricao: 'Aprenda os principais BDs relacionais do mercado'
+              }
+          }
+
+        },
+        methods: {
+        
+        }
+        
+    })
+    
+</script>
+
+</body>
+</html>

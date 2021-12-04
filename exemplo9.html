@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Vuejs-->
+    <script src="vue.js"></script>
+    //DIRETIVA v-on:  MANIPULANDO EVENTOS
+    <style>
+        .verde {
+            color: green
+        }
+        .negrito {
+            font-weight: bold;
+        }
+        .azul {
+            background-color: blue;
+        }
+    </style>
+    
+</head>
+<body>
+
+<div id="app">
+<input type="text" v-on:keyup="imprimirTexto">
+<button v-on:click="mensagemAlerta()">Botão</button>
+</div>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app', //#para selecionar por id, . por selecionar por class
+        data: {},
+        methods: {
+            imprimirTexto(){
+                console.log('Teste')
+            },
+            mensagemAlerta(){
+                alert('Mensagem de Alerta')
+            }
+        }
+    })
+    
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Vuejs-->
+    <script src="vue.js"></script>
+   
+    <style>
+       
+    </style>
+     //DIRETIVA V-FOR - IMPLEMENTANDO LAÇOS DE REPETIÇÃO PARTE 1
+</head>
+<body>
+
+<div id="app">
+<ul>
+    <li v-for="(curso, chave) in cursos">{{ chave }} - {{ curso }}</li>
+    <li>Web Completo</li>
+</ul>
+</div>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app', //#para selecionar por id, . por selecionar por class
+        data: {
+          cursos: ['laravel', 'web completo', 'banco de dados', 'solid', 'angular']
+        },
+        methods: {
+        
+        }
+        
+    })
+    
+</script>
+
+</body>
+</html>

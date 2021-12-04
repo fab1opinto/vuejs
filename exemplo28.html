@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Vuejs-->
+    <script src="vue.js"></script>
+   
+    <style>
+       
+    </style>
+     //TRABALHANDO COM PROPRIEDADES OBSERVADORAS (WATCH)
+</head>
+<body>
+
+<div id="app">
+<span>Paciente:</span><input type="text" v-model="paciente">
+</div>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app', //#para selecionar por id, . por selecionar por class
+        data: {
+            paciente: '',
+            pacientes: [
+                {nome: 'Jorge Santana', idade: 32},
+                {nome: 'João Santos', idade: 45},
+                {nome: 'Kleber', idade: 50},
+                {nome: 'Josicleiton', idade: 18},
+                {nome: 'José Abreu', idade: 30},
+            ]
+           
+        },
+        methods: {},
+        watch: {
+            paciente(valorNovo, valorAntigo) {
+                console.log(valorNovo, valorAntigo)
+                console.log(this.paciente.filter(p => p.nome.match(valorNovo)))
+            },
+            
+        }
+        })
+    
+</script>
+
+</body>
+</html>
